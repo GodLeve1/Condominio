@@ -246,11 +246,11 @@ VALUES
 /*=========================TABLAS USADAS POR MODULO INMUEBLES GRUPO 3=============================*/
 /*===============================================================================================*/
 
-DROP TABLE IF EXIST CLIENTE;
-DROP TABLE IF NO EXIST UNIDAD;
+DROP Table IF EXISTS CLIENTE;
 
 /*=====================CLIENTE=====================*/
 CREATE TABLE CLIENTE (
+    ID INT IDENTITY PRIMARY KEY,
     CI VARCHAR(10),
     Nombre VARCHAR(100),
     Tipo VARCHAR(100),
@@ -266,12 +266,94 @@ VALUES
 ('9876543210', 'Ana García', 'Casa', 'No Reservado', '2024-02-15', '2024-02-29', 'Pago pendiente'),
 ('5678901234', 'Carlos Rodríguez', 'Oficina', 'Reservado', '2024-02-20', '2024-02-25', 'Reserva temporal');
 
+select *from CLIENTE;
+
+
+/*=====================CATALOGO_CONDOMINIOS=====================*/
+CREATE TABLE CATALOGO_CONDOMINIOS (
+    ID INT IDENTITY PRIMARY KEY,
+    Tipo VARCHAR(50),
+    Estado VARCHAR(50),
+    Dimension VARCHAR(50),
+    Num_Habitaciones INT,
+    Servicios VARCHAR(100),
+    Normas VARCHAR(100)
+);
+
+INSERT INTO CATALOGO_CONDOMINIOS (Tipo, Estado, Dimension, Num_Habitaciones, Servicios, Normas)
+VALUES 
+('Apartamento', 'No reservado', 'Grande', 3, 'Piscina, Gimnasio', 'No fumar'),
+('Casa', 'Reservado', 'Mediano', 2, 'Parque, Estacionamiento', 'No animales'),
+('Casa', 'No reservado', 'Pequeño', 1, 'Piscina, Estacionamiento', 'No bicicletas'),
+('Suit', 'Reservado', 'Grande', 4, 'Piscina, Jardín', 'No fiestas'),
+('Apartamento', 'No reservado', 'Pequeño', 1, 'Gimnasio', 'No mascotas'),
+('Apartamento', 'Reservado', 'Mediano', 2, 'Piscina', 'No fumar'),
+('Casa', 'No reservado', 'Grande', 3, 'Parque, Piscina', 'No ruidos'),
+('Suit', 'Reservado', 'Mediano', 2, 'Jardín', 'No animales');
+
+Select *from CATALOGO_CONDOMINIOS
+
+
+/*=====================GESTION_PROPIEDADES=====================*/
+CREATE TABLE GESTION_PROPIEDADES (
+	ID INT IDENTITY PRIMARY KEY,
+    Cedula VARCHAR(20),
+    Nombre VARCHAR(100),
+    Bloque VARCHAR(50),
+    Edificio VARCHAR(50),
+    Piso VARCHAR(2),
+    Departamento VARCHAR(50),
+    Observaciones VARCHAR(200)
+);
+
+
+INSERT INTO GESTION_PROPIEDADES (Cedula, Nombre, Bloque, Edificio, Piso, Departamento, Observaciones)
+VALUES
+('1234567890', 'Juan Pérez', 'A', 'Torre 1', '4', '24', 'Puertas Rayadas'),
+('2345678901', 'María González', 'B', 'Torre 2', '2', '13', 'Recien Pintado'),
+('3456789012', 'Carlos Rodríguez', 'C', 'Torre 3', '3', '20', 'Amueblado'),
+('4567890123', 'Ana Martínez', 'A', 'Torre 2', '1', '3', 'Demasiada Humedad'),
+('5678901234', 'Laura López', 'B', 'Torre 1', '1', '2', 'Rota tuberia del agua'),
+('6789012345', 'Pedro Sánchez', 'C', 'Torre 1', '3', '19', 'Sin Observacion');
+
+
+Select *from GESTION_PROPIEDADES
+
+/*=====================REPORTES=====================*/
+CREATE TABLE REPORTES (
+    ID INT IDENTITY PRIMARY KEY,
+    Cedula VARCHAR(20),
+    Nombre VARCHAR(100),
+    Bloque_Anterior VARCHAR(50),
+    Bloque_Actual VARCHAR(50),
+    Edificio_Anterior VARCHAR(50),
+    Edificio_Actual VARCHAR(50),
+    Piso_Anterior VARCHAR(10),
+    Piso_Actual VARCHAR(10),
+    Departamento_Anterior VARCHAR(50),
+    Departamento_Actual VARCHAR(50),
+    Observacion_Anterior VARCHAR(200),
+    Observacion_Actual VARCHAR(200)
+);
+
+INSERT INTO REPORTES (Cedula, Nombre, Bloque_Anterior, Bloque_Actual, Edificio_Anterior, Edificio_Actual, Piso_Anterior, Piso_Actual, Departamento_Anterior, Departamento_Actual, Observacion_Anterior, Observacion_Actual)
+VALUES
+('1234567890', 'Juan Pérez', 'A', NULL, 'Torre 1', NULL, '4', NULL, '24', NULL, 'Puertas Rayadas', NULL),
+('2345678901', 'María González', 'B', NULL, 'Torre 2', NULL, '2', NULL, '13', NULL, 'Recien Pintado', NULL),
+('3456789012', 'Carlos Rodríguez', 'C', NULL, 'Torre 3', NULL, '3', NULL, '20', NULL, 'Amueblado', NULL),
+('4567890123', 'Ana Martínez', 'A', NULL, 'Torre 2', NULL, '1', NULL, '3', NULL, 'Demasiada Humedad', NULL),
+('5678901234', 'Laura López', 'B', NULL, 'Torre 1', NULL, '1', NULL, '2', NULL, 'Rota tuberia del agua', NULL),
+('6789012345', 'Pedro Sánchez', 'C', NULL, 'Torre 1', NULL, '3', NULL, '19', NULL, 'Sin Observacion', NULL);
+
+Select *from REPORTES
+
 
 
 /*=====================RESERVA=====================*/
 DROP TABLE IF EXISTS RESERVA;
 
 CREATE TABLE RESERVA (
+	ID INT IDENTITY PRIMARY KEY,
     Cedula VARCHAR(10),
     Nombre VARCHAR(100),
     Tipo VARCHAR(100),
@@ -287,3 +369,4 @@ VALUES
 ('9876543210', 'Ana García', 'Casa', 'No Reservado', '2024-02-15', '2024-02-29', 'Pago pendiente'),
 ('5678901234', 'Carlos Rodríguez', 'Oficina', 'Reservado', '2024-02-20', '2024-02-25', 'Reserva temporal');
 
+Select * from RESERVA
