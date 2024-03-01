@@ -1419,21 +1419,48 @@ public class Modulossss extends javax.swing.JFrame {
 
 
     private void botonEditarCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarCatalogoActionPerformed
-        // TODO add your handling code here:
-        // Obtener la fila seleccionada en la tabla
-    int filaSeleccionada = tablaCatalogo.getSelectedRow();
-    if (filaSeleccionada != -1) { // Verificar si se ha seleccionado una fila
-        String id = (String) tablaCatalogo.getValueAt(filaSeleccionada, 0);
-        String dimension = (String) tablaCatalogo.getValueAt(filaSeleccionada, 1);
-        String numHabitaciones = (String) tablaCatalogo.getValueAt(filaSeleccionada, 2);
-        String servicios = (String) tablaCatalogo.getValueAt(filaSeleccionada, 3);
-        String normas = (String) tablaCatalogo.getValueAt(filaSeleccionada, 4);
 
-        EditarCondominioDialog ventanaEditar = new EditarCondominioDialog(this, true, id, dimension, numHabitaciones, servicios, normas, tablaCatalogo);
-        ventanaEditar.setVisible(true);
-    } else {
-        JOptionPane.showMessageDialog(this, "Por favor, seleccione un condominio para editar.", "Error", JOptionPane.ERROR_MESSAGE);
-    }
+        int filaSeleccionada = tablaCatalogo.getSelectedRow();
+        
+    // Verificar si se ha seleccionado una fila
+        if (filaSeleccionada != -1) {
+        // Confirmar con el usuario si realmente desea eliminar el condominio
+            int confirmacion = JOptionPane.showConfirmDialog(this, "¿Está seguro de que desea eliminar este Condominio?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
+        
+            // Si el usuario confirma la eliminación
+            if (confirmacion == JOptionPane.YES_OPTION) {
+                // Eliminar la fila del modelo de la tabla
+                DefaultTableModel modeloTabla = (DefaultTableModel) tablaCatalogo.getModel();
+                
+
+                if (filaSeleccionada != -1) { // Verifica si se ha seleccionado una fila
+                    int columnCount = modeloTabla.getColumnCount();
+                    String ID = (String) modeloTabla.getValueAt(filaSeleccionada, 0);
+                    System.out.println(ID);
+                    int idEntero = Integer.parseInt(ID);
+                    //System.out.println(idEntero);
+                    
+                    ActualizarDepartamentoCondominio newFrame = new ActualizarDepartamentoCondominio(idEntero);
+                    newFrame.setVisible(true);
+                    
+                    
+                    //PestanaCatalogo.actualizarReguistro(idEntero);
+                    
+                    //PestanaGestionInmuebles.eliminarRegistro(modeloTabla,idEntero);
+                    //PestanaGestionInmuebles.TraertablaReservaEstado(estado, tablaVisualizacionUsuarioGestionUnidades1);
+                }
+                    
+                
+                //PestanaGestionInmuebles.eliminarRegistro(modeloTabla,"1234567890");
+            }
+        } else {
+        JOptionPane.showMessageDialog(this, "Por favor, seleccione un Condominio para eliminar.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        
+        
+        
+        
     }//GEN-LAST:event_botonEditarCatalogoActionPerformed
 
     private void botonEliminarCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarCatalogoActionPerformed
@@ -1557,7 +1584,7 @@ public class Modulossss extends javax.swing.JFrame {
     // Verificar si se ha seleccionado una fila
         if (filaSeleccionada != -1) {
         // Confirmar con el usuario si realmente desea eliminar el condominio
-            int confirmacion = JOptionPane.showConfirmDialog(this, "¿Está seguro de que desea eliminar este condominio?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
+            int confirmacion = JOptionPane.showConfirmDialog(this, "¿Está seguro de que desea eliminar esta reserva?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
         
             // Si el usuario confirma la eliminación
             if (confirmacion == JOptionPane.YES_OPTION) {
@@ -1578,7 +1605,7 @@ public class Modulossss extends javax.swing.JFrame {
                 //PestanaGestionInmuebles.eliminarRegistro(modeloTabla,"1234567890");
             }
         } else {
-        JOptionPane.showMessageDialog(this, "Por favor, seleccione un condominio para eliminar.", "Error", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Por favor, seleccione una reserva para eliminar.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_botonEliminarRegistroAIG2ActionPerformed
 

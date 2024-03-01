@@ -120,4 +120,37 @@ public class PestanaCatalogo {
             e.printStackTrace();
         }
     }
+
+    public static void traerReguistro(int id, JLabel jLabel7, JLabel jLabel8, JLabel jLabel9) {
+        
+        String query = "SELECT *FROM CATALOGO_CONDOMINIOS WHERE ID = ?";
+        
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+         PreparedStatement pstmt = conn.prepareStatement(query)) {
+        pstmt.setInt(1, id);
+        
+            ResultSet resultSet = pstmt.executeQuery();
+            if (resultSet.next()) {
+                String tipo = resultSet.getString("Tipo");
+                String dimension = resultSet.getString("Dimension");
+                String normas = resultSet.getString("Normas");
+                
+                System.out.println(tipo);
+
+                jLabel7.setText(tipo);
+                jLabel8.setText(dimension);
+                jLabel9.setText(normas);
+            } else {
+                // No se encontró ningún registro con el ID proporcionado
+                jLabel7.setText("");
+                jLabel8.setText("");
+                jLabel9.setText("");
+                System.out.println("notrajonada");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+        
+    
 }
