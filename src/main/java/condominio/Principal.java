@@ -5,7 +5,7 @@
 package condominio;
 
 import G4_Reservas.AreasComunesUsuarios;
-import G3_Inmuebles.vistasGrpo3.GestionInmuebles.InterfazInmueble.Modulossss;
+import G3_Inmuebles.ModuloInmuebles;
 
 /**
  *
@@ -176,7 +176,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void btnIniciar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciar5ActionPerformed
         // TODO add your handling code here:
-        new Modulossss().setVisible(true);
+        new ModuloInmuebles().setVisible(true);
         
     }//GEN-LAST:event_btnIniciar5ActionPerformed
 

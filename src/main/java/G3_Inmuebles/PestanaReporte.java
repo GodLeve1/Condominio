@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package G3_Inmuebles.modelGrpo3;
+package G3_Inmuebles;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -22,6 +22,7 @@ public class PestanaReporte {
     private static final String USER = "root";
     private static final String PASSWORD = "123456";
 
+    //Si se usa
     public static void crearReporte(String numCedula, String nombre, String bloqueAnterior, String tipoDepartamentoAnterior, String numDepartamentoAnterior, String bloqueNuevo, String departamentoNuevo, String tipoDepartamentoNuevo, String obsevacion) {
         
         String query = "INSERT INTO TablaObservaciones (Cedula ,Nombre, BloqueAnterior , BloqueActual, NumDepAnterior, NumDepActual, TipoDepartamentoAnterior,TipoDepartamentoActual,Observaciones) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -53,6 +54,7 @@ public class PestanaReporte {
     
     }
 
+    //Si se usa
     public static void buscarPorCedula(String numeroCedula, JScrollPane jScrollPane13) {
         
         DefaultTableModel model = new DefaultTableModel();

@@ -2,18 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package G3_Inmuebles.modelGrpo3;
+package G3_Inmuebles;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.*;
-import javax.swing.table.TableModel;
-import javax.swing.table.TableRowSorter;
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -24,6 +18,8 @@ public class PestanaGestionPropiedad {
     private static final String USER = "root";
     private static final String PASSWORD = "123456";
 
+    
+    //Si se usa
     public static void EnviarReguistro(String Cedula, String Nombre, String numeroBloque, String tipoPiso, int idEntero) {
         String query = "INSERT INTO GESTION_PROPIEDADES (CEDULA , NOMBRE , NUM_BLOQUE, TIPO_PISO, NUM_DEPARTAMENTO) VALUES (?, ?, ?, ?, ?)";
         

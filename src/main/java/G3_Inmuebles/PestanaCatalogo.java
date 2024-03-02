@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package G3_Inmuebles.modelGrpo3;
+package G3_Inmuebles;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,10 +10,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.*;
-import javax.swing.table.TableModel;
-import javax.swing.table.TableRowSorter;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 public class PestanaCatalogo {
@@ -23,6 +19,7 @@ public class PestanaCatalogo {
     private static final String PASSWORD = "123456";
   
 
+    //Si se usa
     public static void filtro(String numBloque, String tipo, String servicios, String normas, JTable tablaCatalogo) {
         
         DefaultTableModel model = new DefaultTableModel();
@@ -126,6 +123,7 @@ public class PestanaCatalogo {
         }
     }
 
+    //Si se usa
     public static void agregarCondominio(String nombreBloque, String nombreAdministrador, String numDepGrandes, String numDepMedianos, String numDeppequenos, String numSuit, String servicio, String normas) {
         
         String query = "INSERT INTO CATALOGO_FORMULARIO (num_bloque, nombre_administrador, departamentos_grandes, departamentos_medianos, departamentos_pequenos, suits, servicios, normas) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -152,6 +150,8 @@ public class PestanaCatalogo {
         
     
     }
+    
+    //Si se usa
 
     public static void filtroDepartamento(String numeroBloque, JTable jTable1) {
         
@@ -194,6 +194,8 @@ public class PestanaCatalogo {
         
     }
 
+    
+    //Si se usa
     public static void actualizarEstadoDepartamento(String numeroBloque, int idEntero) {
     String query = "UPDATE \"" + numeroBloque + "\" SET Estado = 'Arrendado' WHERE id = ?";
     

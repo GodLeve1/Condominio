@@ -1544,7 +1544,7 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel16">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="N&#xb0; Departamento Anterior:"/>
+                        <Property name="text" type="java.lang.String" value="N&#xb0; Departamento Actual:"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel19">

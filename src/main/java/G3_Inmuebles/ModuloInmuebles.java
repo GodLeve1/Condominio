@@ -2,45 +2,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package G3_Inmuebles.vistasGrpo3.GestionInmuebles.InterfazInmueble;
+package G3_Inmuebles;
 
-import G3_Inmuebles.modelGrpo3.PestanaGestionPropiedad;
-import G3_Inmuebles.modelGrpo3.PestanaPropiedades;
-import G3_Inmuebles.modelGrpo3.PestanaCatalogo;
-import G3_Inmuebles.modelGrpo3.PestanaReporte;
+
 import java.awt.Color;
-import G3_Inmuebles.modelGrpo3.PestanaGestionInmuebles;
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
-import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
-import javax.swing.table.TableRowSorter;
-
-    import java.sql.Connection;
-    import java.sql.DriverManager;
-    import java.sql.SQLException;
 
 
 /**
  *
  * @author dopar
  */
-public class Modulossss extends javax.swing.JFrame {
-    private JComboBox<String> comboBoxDimension;
-    private JComboBox<String> comboBoxNumHabitaciones;
-    private JComboBox<String> comboBoxServicios;
-    private JComboBox<String> comboBoxNormas;
+public class ModuloInmuebles extends javax.swing.JFrame {
     
-    String pis, gim, par, estac;
+    String piscina, gimnasio, parque, estacionamiento;
     
 
     /**
      * Creates new form Modulossss
      */
-    public Modulossss() {
+    public ModuloInmuebles() {
         initComponents();
         //this.setUndecorated(true);
         this.setLocationRelativeTo(null);
@@ -926,7 +908,7 @@ public class Modulossss extends javax.swing.JFrame {
 
         jLabel15.setText("N° Departamento Anterior:");
 
-        jLabel16.setText("N° Departamento Anterior:");
+        jLabel16.setText("N° Departamento Actual:");
 
         jLabel19.setText("Observación Anterior:");
 
@@ -1811,16 +1793,16 @@ public class Modulossss extends javax.swing.JFrame {
         String numSuit = textCedulaArrendatario6.getText();
         
         StringBuilder Servicios = new StringBuilder("");
-        if (pis != null && !pis.isEmpty()) {
+        if (piscina != null && !piscina.isEmpty()) {
             Servicios.append("Piscina, ");
         }
-        if (gim != null && !gim.isEmpty()) {
+        if (gimnasio != null && !gimnasio.isEmpty()) {
             Servicios.append("Gimnasio, ");
         }
-        if (par != null && !par.isEmpty()) {
+        if (parque != null && !parque.isEmpty()) {
             Servicios.append("Parque, ");
         }
-        if (estac != null && !estac.isEmpty()) {
+        if (estacionamiento != null && !estacionamiento.isEmpty()) {
             Servicios.append("Estacionamiento, ");
         }
         
@@ -1854,9 +1836,9 @@ public class Modulossss extends javax.swing.JFrame {
 
     private void jCheckBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox1MouseClicked
         if(jCheckBox1.isSelected()){
-            pis = "1";
+            piscina = "1";
         }else{
-            pis ="";
+            piscina ="";
         }
     }//GEN-LAST:event_jCheckBox1MouseClicked
 
@@ -1866,9 +1848,9 @@ public class Modulossss extends javax.swing.JFrame {
 
     private void jCheckBox2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox2MouseClicked
       if(jCheckBox2.isSelected()){
-            gim = "1";
+            gimnasio = "1";
         }else{
-            gim ="";
+            gimnasio ="";
         }
     }//GEN-LAST:event_jCheckBox2MouseClicked
 
@@ -1878,9 +1860,9 @@ public class Modulossss extends javax.swing.JFrame {
 
     private void jCheckBox3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox3MouseClicked
         if(jCheckBox3.isSelected()){
-            par = "1";
+            parque = "1";
         }else{
-            par ="";
+            parque ="";
         }
     }//GEN-LAST:event_jCheckBox3MouseClicked
 
@@ -1890,34 +1872,20 @@ public class Modulossss extends javax.swing.JFrame {
 
     private void jCheckBox4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox4MouseClicked
       if(jCheckBox4.isSelected()){
-            estac = "1";
+            estacionamiento = "1";
         }else{
-            estac ="";
+            estacionamiento ="";
         }
     }//GEN-LAST:event_jCheckBox4MouseClicked
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-            
-        
+
         String numCedula = jTextField1.getText();
-        
-        String[] Datos = PestanaPropiedades.traerCampos(numCedula);   
-        
+        String[] Datos = PestanaPropiedades.traerCampos(numCedula);
         jLabel25.setText(Datos[0]);
         jLabel3.setText(Datos[1]);
         jLabel9.setText(Datos[2]);
         jLabel6.setText(Datos[3]);
-        
-        
-        
-        
-        //PestanaPropiedades.traerCampos(numCedula);
-        
-        
-
-
-
-
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
@@ -1992,8 +1960,6 @@ public class Modulossss extends javax.swing.JFrame {
         String obsevacion = jTextArea2.getText();
         
         PestanaReporte.crearReporte(numCedula,Datos[0],Datos[1],Datos[2],Datos[3],bloqueNuevo,departamentoNuevo,tipoDepartamentoNuevo,obsevacion);
-        
-        
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
@@ -2015,20 +1981,21 @@ public class Modulossss extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Modulossss.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModuloInmuebles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Modulossss.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModuloInmuebles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Modulossss.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModuloInmuebles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Modulossss.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModuloInmuebles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Modulossss().setVisible(true);
+                new ModuloInmuebles().setVisible(true);
             }
         });
         

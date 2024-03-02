@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package G3_Inmuebles.modelGrpo3;
+package G3_Inmuebles;
 
 
 import java.sql.Connection;
@@ -18,7 +18,9 @@ public class PestanaPropiedades {
     private static final String URL = "jdbc:sqlserver://localhost:1433;databaseName=Condominio;trustServerCertificate=true";
     private static final String USER = "root";
     private static final String PASSWORD = "123456";
-
+    
+    
+    //Si se usa
     public static void buscarPorCedula(String numeCedula, JTable tabla) {
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("CEDULA");
@@ -48,6 +50,7 @@ public class PestanaPropiedades {
         }
     }
 
+    //Si se usa
     public static String[] traerCampos(String numCedula) {
         
         String[] DatosUsuario = null;
