@@ -4,8 +4,10 @@
  */
 package G3_Inmuebles.vistasGrpo3.GestionInmuebles.InterfazInmueble;
 
-import G3_Inmuebles.modelGrpo3.BusquedaPropiedades;
+import G3_Inmuebles.modelGrpo3.PestanaGestionPropiedad;
+import G3_Inmuebles.modelGrpo3.PestanaPropiedades;
 import G3_Inmuebles.modelGrpo3.PestanaCatalogo;
+import G3_Inmuebles.modelGrpo3.PestanaReporte;
 import java.awt.Color;
 import G3_Inmuebles.modelGrpo3.PestanaGestionInmuebles;
 import java.util.ArrayList;
@@ -31,6 +33,8 @@ public class Modulossss extends javax.swing.JFrame {
     private JComboBox<String> comboBoxNumHabitaciones;
     private JComboBox<String> comboBoxServicios;
     private JComboBox<String> comboBoxNormas;
+    
+    String pis, gim, par, estac;
     
 
     /**
@@ -135,10 +139,12 @@ public class Modulossss extends javax.swing.JFrame {
         jButton12 = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jTextField14 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jComboBox8 = new javax.swing.JComboBox<>();
         panelCatalogo = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
@@ -154,8 +160,8 @@ public class Modulossss extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jComboBox7 = new javax.swing.JComboBox<>();
         jComboBox10 = new javax.swing.JComboBox<>();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        textCedulaArrendatario11 = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
@@ -950,6 +956,11 @@ public class Modulossss extends javax.swing.JFrame {
         jTextArea2.setRows(5);
 
         jButton4.setText("Agregar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton12.setText("Buscar");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
@@ -962,17 +973,17 @@ public class Modulossss extends javax.swing.JFrame {
 
         jLabel18.setText("Tipo Departamento Actual:");
 
-        jTextField14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField14ActionPerformed(evt);
-            }
-        });
-
         jLabel3.setText("...");
 
         jLabel6.setText("...");
 
         jLabel9.setText("...");
+
+        jLabel22.setText("Nombre");
+
+        jLabel25.setText("...");
+
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Grande", "Mediano", "Pequeño", "Suit" }));
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
@@ -990,26 +1001,18 @@ public class Modulossss extends javax.swing.JFrame {
                         .addComponent(jLabel47)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel13Layout.createSequentialGroup()
-                .addContainerGap(125, Short.MAX_VALUE)
+                .addGap(125, 125, 125)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel17))
-                        .addGap(73, 73, 73)
-                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE))
-                        .addGap(40, 40, 40)
-                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField14)
-                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel22)
+                        .addGap(60, 60, 60)
+                        .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel13Layout.createSequentialGroup()
@@ -1018,40 +1021,54 @@ public class Modulossss extends javax.swing.JFrame {
                             .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                         .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(121, 121, 121))))
+                        .addGap(121, 121, 121))
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel13Layout.createSequentialGroup()
+                                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel15)
+                                    .addComponent(jLabel17))
+                                .addGap(73, 73, 73)
+                                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE))
+                                .addGap(40, 40, 40)
+                                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel16)
+                                    .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField12, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+                                    .addComponent(jComboBox8, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(jPanel13Layout.createSequentialGroup()
+                                .addGap(116, 116, 116)
+                                .addComponent(jLabel21))
+                            .addGroup(jPanel13Layout.createSequentialGroup()
+                                .addGap(268, 268, 268)
+                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(jPanel13Layout.createSequentialGroup()
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addGap(241, 241, 241)
-                        .addComponent(jLabel21))
-                    .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addGap(393, 393, 393)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addGap(252, 252, 252)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(324, 324, 324)
+                .addComponent(jTextArea2, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel13Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jTextArea2, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton12))
-                .addGap(40, 40, 40)
+                .addGap(34, 34, 34)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton12)
+                        .addComponent(jLabel22))
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(jLabel25)
+                        .addGap(3, 3, 3)))
+                .addGap(47, 47, 47)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel13Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
@@ -1076,22 +1093,19 @@ public class Modulossss extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel18)
-                            .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel9))
                 .addGap(26, 26, 26)
                 .addComponent(jLabel21)
-                .addGap(123, 123, 123)
+                .addGap(21, 21, 21)
+                .addComponent(jTextArea2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton4)
                 .addGap(157, 157, 157)
                 .addComponent(jLabel19)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel20)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel13Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jTextArea2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         jTabbedPane7.addTab("Gestionar Reportes", jPanel13);
@@ -1176,7 +1190,7 @@ public class Modulossss extends javax.swing.JFrame {
 
         jLabel7.setText("Servicios");
 
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todo", "Departamento Mediano", "Departamento Pequeño", "Departamento Grande", "Suit" }));
+        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todo", "Grande", "Mediano", "Pequeño", "Suit" }));
         jComboBox7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox7ActionPerformed(evt);
@@ -1185,19 +1199,7 @@ public class Modulossss extends javax.swing.JFrame {
 
         jComboBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todo", "NO fumar", "NO animales", "NO bicicletas" }));
 
-        jButton8.setText("Editar");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-
-        jButton9.setText("Eliminar");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
+        jLabel14.setText("Num Bloque");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -1213,28 +1215,28 @@ public class Modulossss extends javax.swing.JFrame {
                         .addComponent(jLabel11)))
                 .addContainerGap(372, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(79, 79, 79)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(textCedulaArrendatario11))
+                .addGap(67, 67, 67)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel37)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButton8)
-                        .addGap(161, 161, 161)
-                        .addComponent(jButton9))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(jLabel7)
-                        .addGap(78, 78, 78)
-                        .addComponent(jLabel37))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
                         .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(289, 289, 289))
+                .addGap(150, 150, 150))
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
                     .addGap(54, 54, 54)
@@ -1252,18 +1254,16 @@ public class Modulossss extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel37)
                     .addComponent(jLabel7)
-                    .addComponent(jLabel5))
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel14))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 336, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton8)
-                    .addComponent(jButton9))
-                .addGap(37, 37, 37))
+                    .addComponent(jButton6)
+                    .addComponent(textCedulaArrendatario11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(396, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
                     .addGap(195, 195, 195)
@@ -1366,8 +1366,18 @@ public class Modulossss extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jTable1);
 
         jButton10.setText("Consultar");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
 
         jButton11.setText("Agregar");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -1677,7 +1687,7 @@ public class Modulossss extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String numCedula = jTextField6.getText();
-        BusquedaPropiedades.buscarPorCedula(numCedula, jTable4);
+        PestanaPropiedades.buscarPorCedula(numCedula, jTable4);
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -1777,7 +1787,14 @@ public class Modulossss extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField9ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+       
+        String numeroCedula = jTextField9.getText();
+        
+        PestanaReporte.buscarPorCedula(numeroCedula, jScrollPane13);
+
+
+
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jComboBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox7ActionPerformed
@@ -1785,26 +1802,62 @@ public class Modulossss extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox7ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        AgregarDepartamentoCondominio ventana = new AgregarDepartamentoCondominio();
-        ventana.setVisible(true);
+        
+        String nombreBloque = textCedulaArrendatario5.getText();
+        String nombreAdministrador = textCedulaArrendatario4.getText();
+        String numDepGrandes = textCedulaArrendatario7.getText();
+        String numDepMedianos = textCedulaArrendatario8.getText();
+        String numDeppequenos = textCedulaArrendatario9.getText();
+        String numSuit = textCedulaArrendatario6.getText();
+        
+        StringBuilder Servicios = new StringBuilder("");
+        if (pis != null && !pis.isEmpty()) {
+            Servicios.append("Piscina, ");
+        }
+        if (gim != null && !gim.isEmpty()) {
+            Servicios.append("Gimnasio, ");
+        }
+        if (par != null && !par.isEmpty()) {
+            Servicios.append("Parque, ");
+        }
+        if (estac != null && !estac.isEmpty()) {
+            Servicios.append("Estacionamiento, ");
+        }
+        
+        String servicio = Servicios.toString();
+        
+        System.out.println(servicio);
+        
+        String normas = (String) jComboBox5.getSelectedItem();
+        
+        PestanaCatalogo.agregarCondominio(nombreBloque,nombreAdministrador,numDepGrandes,numDepMedianos,numDeppequenos,numSuit,servicio,normas);
+        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 
-        String dimencion = (String) jComboBox7.getSelectedItem();
+        String numeroBloque = textCedulaArrendatario11.getText();
+        String TipoDepartamento = (String) jComboBox7.getSelectedItem();
         String servicio = (String) jComboBox9.getSelectedItem();
         String normas = (String) jComboBox10.getSelectedItem();
-        PestanaCatalogo.filtro(dimencion, servicio, normas, tablaCatalogo);
-
-        //FiltroTabla.filtrar(tablaCatalogo, comboBoxDimension, comboBoxNumHabitaciones, comboBoxServicios, comboBoxNormas);
-
-        System.out.println(dimencion);
-        System.out.println(servicio);
-        System.out.println(normas);
+        
+        if(!numeroBloque.isEmpty()){
+            PestanaCatalogo.filtro(numeroBloque, TipoDepartamento, servicio, normas, tablaCatalogo);
+        }else{
+            System.out.println("numero vacio");
+            JOptionPane.showMessageDialog(this, "Por favor, Indique el numero de Bloque.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        
+        
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jCheckBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox1MouseClicked
-        
+        if(jCheckBox1.isSelected()){
+            pis = "1";
+        }else{
+            pis ="";
+        }
     }//GEN-LAST:event_jCheckBox1MouseClicked
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
@@ -1812,7 +1865,11 @@ public class Modulossss extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jCheckBox2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox2MouseClicked
-      
+      if(jCheckBox2.isSelected()){
+            gim = "1";
+        }else{
+            gim ="";
+        }
     }//GEN-LAST:event_jCheckBox2MouseClicked
 
     private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
@@ -1820,7 +1877,11 @@ public class Modulossss extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox2ActionPerformed
 
     private void jCheckBox3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox3MouseClicked
-    
+        if(jCheckBox3.isSelected()){
+            par = "1";
+        }else{
+            par ="";
+        }
     }//GEN-LAST:event_jCheckBox3MouseClicked
 
     private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
@@ -1828,15 +1889,35 @@ public class Modulossss extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox3ActionPerformed
 
     private void jCheckBox4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox4MouseClicked
-      
+      if(jCheckBox4.isSelected()){
+            estac = "1";
+        }else{
+            estac ="";
+        }
     }//GEN-LAST:event_jCheckBox4MouseClicked
 
-    private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField14ActionPerformed
-
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
+            
+        
+        String numCedula = jTextField1.getText();
+        
+        String[] Datos = PestanaPropiedades.traerCampos(numCedula);   
+        
+        jLabel25.setText(Datos[0]);
+        jLabel3.setText(Datos[1]);
+        jLabel9.setText(Datos[2]);
+        jLabel6.setText(Datos[3]);
+        
+        
+        
+        
+        //PestanaPropiedades.traerCampos(numCedula);
+        
+        
+
+
+
+
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
@@ -1851,13 +1932,69 @@ public class Modulossss extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        
+        String numeroBloque = textCedulaArrendatario10.getText();
+        if(!numeroBloque.isEmpty()){
+            PestanaCatalogo.filtroDepartamento(numeroBloque, jTable1);
+        }else{
+            JOptionPane.showMessageDialog(this, "Por favor, Indique el numero de Bloque.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        
+        
+        String Nombre = jTextField8.getText();
+        String Cedula = textCedulaArrendatario3.getText();
+        String numeroBloque = textCedulaArrendatario10.getText();
+        
+        int filaSeleccionada = jTable1.getSelectedRow();
+        DefaultTableModel modeloTabla = (DefaultTableModel) jTable1.getModel();
+        
+        
+        if(!numeroBloque.isEmpty() && !Nombre.isEmpty() && !Cedula.isEmpty()){
+            
+            if (filaSeleccionada != -1) { // Verifica si se ha seleccionado una fila
+                    int columnCount = modeloTabla.getColumnCount();
+                    
+                    String tipoPiso = (String) modeloTabla.getValueAt(filaSeleccionada, 2);
+                    System.out.println(tipoPiso);
+                    String ID = (String) modeloTabla.getValueAt(filaSeleccionada, 0);
+                    int idEntero = Integer.parseInt(ID);
+                    System.out.println(idEntero);
+                    PestanaCatalogo.actualizarEstadoDepartamento(numeroBloque,idEntero);
+                    
+                    PestanaGestionPropiedad.EnviarReguistro(Cedula,Nombre,numeroBloque,tipoPiso,idEntero);
+                    
+                }
+            
+            
+        }else{
+            JOptionPane.showMessageDialog(this, "Por favor,llene todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+
+
+
+
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        
+        String numCedula = jTextField1.getText();
+        String[] Datos = PestanaPropiedades.traerCampos(numCedula);
+        String bloqueNuevo = jTextField4.getText();
+        String departamentoNuevo = jTextField12.getText();
+        String tipoDepartamentoNuevo = (String) jComboBox8.getSelectedItem();
+        String obsevacion = jTextArea2.getText();
+        
+        PestanaReporte.crearReporte(numCedula,Datos[0],Datos[1],Datos[2],Datos[3],bloqueNuevo,departamentoNuevo,tipoDepartamentoNuevo,obsevacion);
+        
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1919,8 +2056,6 @@ public class Modulossss extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;
@@ -1928,12 +2063,14 @@ public class Modulossss extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox10;
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JComboBox<String> jComboBox7;
+    private javax.swing.JComboBox<String> jComboBox8;
     private javax.swing.JComboBox<String> jComboBox9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -1942,8 +2079,10 @@ public class Modulossss extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
@@ -2002,7 +2141,6 @@ public class Modulossss extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField8;
@@ -2029,6 +2167,7 @@ public class Modulossss extends javax.swing.JFrame {
     private javax.swing.JTable tablaVisualizacionUsuarioGestionUnidades1;
     private javax.swing.JTextField textCedulaArrendatario1;
     private javax.swing.JTextField textCedulaArrendatario10;
+    private javax.swing.JTextField textCedulaArrendatario11;
     private javax.swing.JTextField textCedulaArrendatario3;
     private javax.swing.JTextField textCedulaArrendatario4;
     private javax.swing.JTextField textCedulaArrendatario5;
