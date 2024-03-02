@@ -23,8 +23,8 @@ public class NewMain {
         Modulossss mod = new Modulossss();
         mod.setVisible(true);
         
-       //AgregarDepartamentoCondominio ventana = new AgregarDepartamentoCondominio();
-       //ventana.setVisible(true);
+       AgregarDepartamentoCondominio ventana = new AgregarDepartamentoCondominio();
+       ventana.setVisible(true);
         
         
     }

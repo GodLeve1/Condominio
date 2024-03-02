@@ -12,16 +12,12 @@ import G3_Inmuebles.modelGrpo3.PestanaCatalogo;
  */
 public class ActualizarDepartamentoCondominio extends javax.swing.JFrame {
 
-    
-    String pis, gim, par, estac, nFu, nAn, nBi;
     /**
      * Creates new form ActualizarDepartamentoCondominio
      */
-    public ActualizarDepartamentoCondominio(int idEntero) {
+    String pis, gim, par, estac, nFu, nAn, nBi;
+    public ActualizarDepartamentoCondominio() {
         initComponents();
-        
-        PestanaCatalogo.traerReguistro(idEntero,jLabel7,jLabel8,jLabel9);
-        
     }
 
     /**
@@ -240,12 +236,9 @@ public class ActualizarDepartamentoCondominio extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox4MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        //String Tipo = (String) jComboBox2.getSelectedItem();
-        
-        
-        
+        String Tipo = (String) jLabel7.getText();
         String Arrendado = (String) jComboBox1.getSelectedItem();
-        //String Dimension = (String) jComboBox3.getSelectedItem();
+        String Dimension = (String) jLabel8.getText();
         String numHabitaciones = (String) jComboBox4.getSelectedItem();
 
         StringBuilder Servicios = new StringBuilder("");
@@ -265,9 +258,9 @@ public class ActualizarDepartamentoCondominio extends javax.swing.JFrame {
         String servicio = Servicios.toString();
         System.out.println(servicio);
 
-        //String Normas = (String) jComboBox5.getSelectedItem();
+        String Normas = (String) jLabel9.getText();
 
-        //PestanaCatalogo.agregarReguistroCondominio(Tipo,Arrendado,Dimension,numHabitaciones,servicio,Normas);
+        PestanaCatalogo.agregarReguistroCondominio(Tipo,Arrendado,Dimension,numHabitaciones,servicio,Normas);
 
         dispose();
 
@@ -335,8 +328,7 @@ public class ActualizarDepartamentoCondominio extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                int idEntero =0;
-                new ActualizarDepartamentoCondominio(idEntero).setVisible(true);
+                new ActualizarDepartamentoCondominio().setVisible(true);
             }
         });
     }
